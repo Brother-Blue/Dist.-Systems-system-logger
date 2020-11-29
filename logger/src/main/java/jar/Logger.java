@@ -17,7 +17,7 @@ public class Logger {
     private final static ExecutorService THREAD_POOL = Executors.newSingleThreadExecutor();
     private final IMqttClient middleware;
 
-    public Logger(String broker, String userId) throws MqttException {
+    public Logger(String userId, String broker) throws MqttException {
         middleware = new MqttClient(broker, userId);
         middleware.connect();
     }
