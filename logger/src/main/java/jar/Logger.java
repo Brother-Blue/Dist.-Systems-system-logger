@@ -1,5 +1,8 @@
 package jar;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 import org.eclipse.paho.client.mqttv3.IMqttClient;
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.MqttCallback;
@@ -11,8 +14,7 @@ import org.eclipse.paho.client.mqttv3.MqttSecurityException;
 
 public class Logger {
 
-    // Felix had Thread_pool in his example code, but it functions without
-
+    private final static ExecutorService THREAD_POOL = Executors.newSingleThreadExecutor();
     private final IMqttClient middleware;
 
     public Logger(String broker, String userId) throws MqttException {
@@ -27,13 +29,15 @@ public class Logger {
     }
 
     private void subscribeToMessages(String sourceTopic) {
-		try {
-			middleware.subscribe(sourceTopic);
-		} catch (MqttSecurityException e) {
-			e.printStackTrace();
-		} catch (MqttException e) {
-			e.printStackTrace();
-		}
+		THREAD_POOL.submit(() -> {
+			try {
+				middleware.subscribe(sourceTopic);
+			} catch (MqttSecurityException e) {
+				e.printStackTrace();
+			} catch (MqttException e) {
+				e.printStackTrace();
+			}
+		});
 	}
 
     // Seems important
