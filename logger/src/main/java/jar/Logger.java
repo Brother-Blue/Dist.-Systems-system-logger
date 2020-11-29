@@ -5,11 +5,11 @@ import java.util.concurrent.Executors;
 
 import org.eclipse.paho.client.mqttv3.IMqttClient;
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
-import org.eclipse.paho.client.mqttv3.MqttCallback;
+// import org.eclipse.paho.client.mqttv3.MqttCallback;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttException;
-import org.eclipse.paho.client.mqttv3.MqttMessage;
-import org.eclipse.paho.client.mqttv3.MqttPersistenceException;
+// import org.eclipse.paho.client.mqttv3.MqttMessage;
+// import org.eclipse.paho.client.mqttv3.MqttPersistenceException;
 import org.eclipse.paho.client.mqttv3.MqttSecurityException;
 
 public class Logger {
@@ -23,7 +23,7 @@ public class Logger {
     }
 
     // Hmmmmmmm what are these ? We will see in his lecture on tuesday :)
-    public static void main(String[] args) throws MqttException, InterruptedExceptions {
+    public static void main(String[] args) throws MqttException, InterruptedException {
         Logger logger = new Logger("test-logger", "tcp://localhost:1883");
         logger.subscribeToMessages("frosk");
     }
@@ -41,7 +41,6 @@ public class Logger {
 	}
 
     // Seems important
-    @Override
 	public void connectionLost(Throwable throwable) {
 		System.out.println("Connection lost!");
 		try {
@@ -53,8 +52,7 @@ public class Logger {
 		// Try to reestablish? Plan B?
 	}
 
-    // This will stay for now
-	@Override
+    //This will stay for now
 	public void deliveryComplete(IMqttDeliveryToken token) {
 	}
 }
