@@ -10,7 +10,7 @@ public class Logger {
 		
 		try {
 			Subscriber subscriber = new Subscriber();
-			subscriber.subscribeToMessages("frosk");
+			subscriber.subscribeToMessages("test");
 		} catch (MqttException e) {
 			e.printStackTrace();
 		}

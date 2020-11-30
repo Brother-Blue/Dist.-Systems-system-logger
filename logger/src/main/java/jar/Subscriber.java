@@ -16,7 +16,6 @@ public class Subscriber implements MqttCallback{
 
 	Logger logger = new Logger();
     private final static ExecutorService THREAD_POOL = Executors.newSingleThreadExecutor();
-	private final static String TOPIC = "test";
 	private final static String BROKER = "tcp://localhost:1883";
 	private final static String USER_ID = "test-subscriber";
 	private final IMqttClient middleware;
@@ -27,10 +26,11 @@ public class Subscriber implements MqttCallback{
 		middleware.setCallback(this);
     }
 
-    void subscribeToMessages(String sourceTopic) {
+    void subscribeToMessages(String topic) {
 		THREAD_POOL.submit(() -> {
 			try {
-				middleware.subscribe(sourceTopic);
+				middleware.subscribe(topic);
+				System.out.println("subscribed to topic; "+ topic);
 			} catch (MqttSecurityException e) {
 				e.printStackTrace();
 			} catch (MqttException e) {
