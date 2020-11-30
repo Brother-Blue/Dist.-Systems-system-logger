@@ -11,13 +11,12 @@ public class Logger {
 		try {
 			Subscriber subscriber = new Subscriber();
 			subscriber.subscribeToMessages("frosk");
-			log("hello");
 		} catch (MqttException e) {
 			e.printStackTrace();
 		}
 	}
 	
-	protected static void log(String data){
+	protected void log(String data){
          
         //Write JSON file
         try (FileWriter file = new FileWriter("logger/src/main/java/jar/Log.json")) {
