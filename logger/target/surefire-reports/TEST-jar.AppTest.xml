@@ -4,7 +4,7 @@
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="11.0.9.1+1-Ubuntu-0ubuntu1.18.04"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-11-openjdk-amd64/lib"/>
-    <property name="maven.multiModuleProjectDirectory" value="/home/hugo/g20/logger/logger"/>
+    <property name="maven.multiModuleProjectDirectory" value="/home/clementine/logger/logger"/>
     <property name="java.vm.vendor" value="Ubuntu"/>
     <property name="java.vendor.url" value="https://ubuntu.com/"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
@@ -14,7 +14,7 @@
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="/home/hugo/g20/logger/logger"/>
+    <property name="user.dir" value="/home/clementine/logger/logger"/>
     <property name="java.vm.compressedOopsMode" value="32-bit"/>
     <property name="java.runtime.version" value="11.0.9.1+1-Ubuntu-0ubuntu1.18.04"/>
     <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
@@ -34,12 +34,12 @@
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="os.version" value="5.4.0-53-generic"/>
     <property name="library.jansi.path" value="/usr/share/maven/lib/jansi-native"/>
-    <property name="user.home" value="/home/hugo"/>
+    <property name="user.home" value="/home/clementine"/>
     <property name="user.timezone" value="Europe/Stockholm"/>
     <property name="java.awt.printerjob" value="sun.print.PSPrinterJob"/>
     <property name="file.encoding" value="UTF-8"/>
     <property name="java.specification.version" value="11"/>
-    <property name="user.name" value="hugo"/>
+    <property name="user.name" value="clementine"/>
     <property name="java.class.path" value="/usr/share/maven/boot/plexus-classworlds-2.x.jar"/>
     <property name="java.vm.specification.version" value="11"/>
     <property name="sun.arch.data.model" value="64"/>
@@ -48,7 +48,7 @@
     <property name="user.language" value="en"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
-    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
     <property name="java.version" value="11.0.9.1"/>
     <property name="securerandom.source" value="file:/dev/./urandom"/>
     <property name="java.vendor" value="Ubuntu"/>
