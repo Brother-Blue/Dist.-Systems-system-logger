@@ -2,17 +2,30 @@ package jar;
 
 import java.io.FileWriter;
 import java.io.IOException;
+
+import org.eclipse.paho.client.mqttv3.MqttException;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 public class Logger {
 
-    @SuppressWarnings("unchecked")
-    public static void main( String[] args )
-    {
-        //First Employee
+	public static void main(String[] args) {
+		
+		try {
+			Subscriber subscriber = new Subscriber();
+			subscriber.subscribeToMessages("topic");
+			log("hello");
+		} catch (MqttException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@SuppressWarnings("unchecked")
+	private static void log(String data){
+
+		//First Employee
         JSONObject employeeDetails = new JSONObject();
-        employeeDetails.put("firstName", "Lokesh");
+        employeeDetails.put("firstName", data);
         employeeDetails.put("lastName", "Gupta");
         employeeDetails.put("website", "howtodoinjava.com");
          
@@ -43,5 +56,6 @@ public class Logger {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
+	}
+
 }

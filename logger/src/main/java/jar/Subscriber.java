@@ -4,7 +4,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import org.eclipse.paho.client.mqttv3.IMqttClient;
-import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
+// import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 // import org.eclipse.paho.client.mqttv3.MqttCallback;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttException;
@@ -22,7 +22,7 @@ public class Subscriber {
         middleware.connect();
     }
 
-    private void subscribeToMessages(String sourceTopic) {
+    void subscribeToMessages(String sourceTopic) {
 		THREAD_POOL.submit(() -> {
 			try {
 				middleware.subscribe(sourceTopic);
