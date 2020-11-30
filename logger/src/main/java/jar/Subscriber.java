@@ -16,11 +16,15 @@ public class Subscriber implements MqttCallback{
 
 	Logger logger = new Logger();
     private final static ExecutorService THREAD_POOL = Executors.newSingleThreadExecutor();
-    private final IMqttClient middleware;
+	private final static String TOPIC = "test";
+	private final static String BROKER = "tcp://localhost:1883";
+	private final static String USER_ID = "test-subscriber";
+	private final IMqttClient middleware;
 
     public Subscriber() throws MqttException {
-        middleware = new MqttClient("tcp://localhost:1883","test-logger");
-        middleware.connect();
+        middleware = new MqttClient(BROKER, USER_ID);
+		middleware.connect();
+		middleware.setCallback(this);
     }
 
     void subscribeToMessages(String sourceTopic) {
