@@ -22,7 +22,6 @@ public class Logger {
         middleware.connect();
     }
 
-    // Hmmmmmmm what are these ? We will see in his lecture on tuesday :)
     public static void main(String[] args) throws MqttException, InterruptedException {
         Logger logger = new Logger("test-logger", "tcp://localhost:1883");
         logger.subscribeToMessages("frosk");
@@ -40,7 +39,7 @@ public class Logger {
 		});
 	}
 
-    // Seems important
+    // Seems important - don't touch 
 	public void connectionLost(Throwable throwable) {
 		System.out.println("Connection lost!");
 		try {
@@ -51,5 +50,4 @@ public class Logger {
 		}
 		// Try to reestablish? Plan B?
 	}
-
 }
