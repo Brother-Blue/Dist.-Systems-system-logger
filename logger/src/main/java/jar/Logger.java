@@ -52,7 +52,4 @@ public class Logger {
 		// Try to reestablish? Plan B?
 	}
 
-    //This will stay for now
-	public void deliveryComplete(IMqttDeliveryToken token) {
-	}
 }
