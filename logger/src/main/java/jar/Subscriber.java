@@ -59,7 +59,13 @@ public class Subscriber implements MqttCallback{
 		System.out.println("topic '" + topic + "': " + message);
 
 		String data = message.toString();
-		logger.log(data);
+		String type = topic.toString();
+
+		logger.writeFile(data, type);
+
+		//logger.log(data);
+
+		
 	}
 
 }
