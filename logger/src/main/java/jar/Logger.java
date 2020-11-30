@@ -19,9 +19,9 @@ public class Logger {
 	protected void log(String data){
          
         //Write JSON file
-        try (FileWriter file = new FileWriter("./src/main/java/jar/Log.json")) {
+        try (FileWriter file = new FileWriter("../src/main/java/jar/Log.txt", true)) {
  
-            file.write(data);
+            file.write(data + "\n");
             file.flush();
             file.close();
  
