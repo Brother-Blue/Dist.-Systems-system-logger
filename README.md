@@ -30,7 +30,7 @@ where you run:
 
 java -jar logger.jar (NOT logger-1.jar)
 
-And now, it is connected!
+Now it is subscribed and is ready to recieve data!
 
 ## Requirements (SRS) <a name="requirements"></a>
 
