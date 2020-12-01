@@ -1,53 +1,77 @@
 package jar;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.io.FileWriter;
+import java.io.IOException;
 
-import org.eclipse.paho.client.mqttv3.IMqttClient;
-import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
-// import org.eclipse.paho.client.mqttv3.MqttCallback;
-import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttException;
-// import org.eclipse.paho.client.mqttv3.MqttMessage;
-// import org.eclipse.paho.client.mqttv3.MqttPersistenceException;
-import org.eclipse.paho.client.mqttv3.MqttSecurityException;
-
 public class Logger {
 
-    private final static ExecutorService THREAD_POOL = Executors.newSingleThreadExecutor();
-    private final IMqttClient middleware;
-
-    public Logger(String userId, String broker) throws MqttException {
-        middleware = new MqttClient(broker, userId);
-        middleware.connect();
-    }
-
-    public static void main(String[] args) throws MqttException, InterruptedException {
-        Logger logger = new Logger("test-logger", "tcp://localhost:1883");
-        logger.subscribeToMessages("frosk");
-    }
-
-    private void subscribeToMessages(String sourceTopic) {
-		THREAD_POOL.submit(() -> {
-			try {
-				middleware.subscribe(sourceTopic);
-			} catch (MqttSecurityException e) {
-				e.printStackTrace();
-			} catch (MqttException e) {
-				e.printStackTrace();
-			}
-		});
-	}
-
-    // Seems important - don't touch 
-	public void connectionLost(Throwable throwable) {
-		System.out.println("Connection lost!");
+	public static void main(String[] args) {
+		
 		try {
-			middleware.disconnect();
-			middleware.close();
+			Subscriber subscriber = new Subscriber();
+			subscriber.subscribeToMessages("General");
+			subscriber.subscribeToMessages("Error");
+			subscriber.subscribeToMessages("Confirmation");
 		} catch (MqttException e) {
 			e.printStackTrace();
 		}
-		// Try to reestablish? Plan B?
+	}
+
+	protected void writeFile(String data, String type) {
+		
+		String file = "";
+
+		switch(type) {
+
+			case "General":
+				file = "../src/main/java/jar/Log.txt";
+				break;
+			
+			case "Error":
+				file = "../src/main/java/jar/Error.txt";
+				break;
+			
+			case "Confirmation":
+				file = "../src/main/java/jar/Confirmation.txt";
+				break;
+			
+			default:
+				System.out.println("Please choose an approperiate topic.");
+		}
+
+		if(file != null){
+			
+			try (FileWriter FileWriter = new FileWriter(file, true)) {
+ 
+				FileWriter.write(data + "\n");
+				FileWriter.flush();
+				FileWriter.close();
+	 
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		
+		} else {
+			System.out.print("Did not enter anything into a file.");
+		}
+	}
+
+	/* 
+	Basic Function that works for now, not implemented
+	Different files for different messages yet. 
+	*/
+	protected void log(String data){
+         
+        //Write JSON file
+        try (FileWriter file = new FileWriter("../src/main/java/jar/Log.txt", true)) {
+ 
+            file.write(data + "\n");
+            file.flush();
+            file.close();
+ 
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 	}
 }
