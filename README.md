@@ -3,11 +3,12 @@
 # Table of contents
 1. [Purpose](#purpose)
     1. [What](#what)
-    2. [Why](#why)
-    2. [How](#how)
-2. [Requirements (SRS)](#requirements)
-3. [Architecture (SAD)](#architecture)
-4. [Developers](#developers)
+    1. [Why](#why)
+    1. [How](#how)
+1. [Running Instructions](#running)
+1. [Requirements (SRS)](#requirements)
+1. [Architecture (SAD)](#architecture)
+1. [Developers](#developers)
 
 ## Purpose <a name="purpose"></a>
 ### What are you going to make? <a name="what"></a>
@@ -15,6 +16,21 @@
 ### Why will you make it? <a name="why"></a>
 
 ### How are you going to make it? <a name="how"></a>
+
+## Running Instructions <a name="running"></a>
+
+Move to the first logger folder, where you will see a Pom file.
+Here, you run:
+
+mvn clean install
+
+which should create a jar file that is executable. 
+Then, you should move to the target folder,
+where you run:
+
+java -jar logger.jar (NOT logger-1.jar)
+
+Now it is subscribed and is ready to recieve data!
 
 ## Requirements (SRS) <a name="requirements"></a>
 
