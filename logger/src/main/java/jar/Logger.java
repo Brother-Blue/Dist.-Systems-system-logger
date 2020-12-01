@@ -51,16 +51,13 @@ public class Logger {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-		
-		} else {
-			System.out.print("Did not enter anything into a file.");
 		}
 	}
 
 	/* 
-	Basic Function that works for now, not implemented
-	Different files for different messages yet. 
-	*/
+	The base functionality for the FileWriter.
+	Kept in case it is needed in the future.
+
 	protected void log(String data){
          
         //Write JSON file
@@ -74,4 +71,5 @@ public class Logger {
             e.printStackTrace();
         }
 	}
+	*/
 }
