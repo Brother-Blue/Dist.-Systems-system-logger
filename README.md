@@ -19,6 +19,19 @@
 
 ## Running Instructions <a name="running"></a>
 
+Move to the first logger folder, where you will see a Pom file.
+Here, you run:
+
+mvn clean install
+
+which should create a jar file that is executable. 
+Then, you should move to the target folder,
+where you run:
+
+java -jar logger.jar (NOT logger-1.jar)
+
+And now, it is connected!
+
 ## Requirements (SRS) <a name="requirements"></a>
 
 ## Architecture (SAD) <a name="architecture"></a>
