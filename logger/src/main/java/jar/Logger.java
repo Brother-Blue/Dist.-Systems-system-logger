@@ -6,13 +6,15 @@ import java.io.IOException;
 import org.eclipse.paho.client.mqttv3.MqttException;
 public class Logger {
 
+	private final static String DEVICEROOT = "dentistimo/";
+
 	public static void main(String[] args) {
 		
 		try {
 			Subscriber subscriber = new Subscriber();
-			subscriber.subscribeToMessages("General");
-			subscriber.subscribeToMessages("Error");
-			subscriber.subscribeToMessages("Confirmation");
+			subscriber.subscribeToMessages(DEVICEROOT + "log/general");
+			subscriber.subscribeToMessages(DEVICEROOT + "log/error");
+			subscriber.subscribeToMessages(DEVICEROOT + "log/confirmation");
 		} catch (MqttException e) {
 			e.printStackTrace();
 		}
@@ -24,15 +26,15 @@ public class Logger {
 
 		switch(type) {
 
-			case "General":
+			case "dentistimo/log/general":
 				file = "../src/main/java/jar/Log.txt";
 				break;
 			
-			case "Error":
+			case "dentistimo/log/error":
 				file = "../src/main/java/jar/Error.txt";
 				break;
 			
-			case "Confirmation":
+			case "dentistimo/log/confirmation":
 				file = "../src/main/java/jar/Confirmation.txt";
 				break;
 			
