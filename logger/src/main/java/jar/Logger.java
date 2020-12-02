@@ -39,7 +39,7 @@ public class Logger {
 				break;
 			
 			default:
-				System.out.println("Please choose an approperiate topic.");
+				System.out.println(type + " <- is not a recognised topic" + "Please choose an approperiate topic.");
 		}
 
 		if(file != null){
