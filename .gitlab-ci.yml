@@ -1,0 +1,12 @@
+image: maven:latest
+
+stages:
+  - build
+
+build:
+  stage: build
+  tags:
+    - docker
+  script:
+    - cd logger
+    - mvn clean install
