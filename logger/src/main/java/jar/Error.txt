@@ -1,1 +1,3 @@
+This file logs all errors.
+
 error

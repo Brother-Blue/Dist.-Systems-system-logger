@@ -1,1 +1,4 @@
+This file logs all general information that does not fit into the predefined subcategories.
+
+
 general
