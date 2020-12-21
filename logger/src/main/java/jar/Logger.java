@@ -24,8 +24,8 @@ public class Logger {
 	// This method writes the message to a specific file depending on the topic.
 	protected void writeFile(String data, String type) {
 		
+		// Depending on the type of message we recieve, we decide what file to log to.
 		String file = "";
-
 		switch(type) {
 
 			case "dentistimo/log/general":
