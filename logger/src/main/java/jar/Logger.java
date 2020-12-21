@@ -2,12 +2,13 @@ package jar;
 
 import java.io.FileWriter;
 import java.io.IOException;
-
 import org.eclipse.paho.client.mqttv3.MqttException;
+
 public class Logger {
 
 	private final static String DEVICEROOT = "dentistimo/";
 
+	// Here we subscribe to the topics we write to the files.
 	public static void main(String[] args) {
 		
 		try {
@@ -20,10 +21,11 @@ public class Logger {
 		}
 	}
 
+	// This method writes the message to a specific file depending on the topic.
 	protected void writeFile(String data, String type) {
 		
+		// Depending on the type of message we recieve, we decide what file to log to.
 		String file = "";
-
 		switch(type) {
 
 			case "dentistimo/log/general":
@@ -42,8 +44,8 @@ public class Logger {
 				System.out.println(type + " <- is not a recognised topic" + "Please choose an approperiate topic.");
 		}
 
+		// This writes the message to a file as long as there is a specified file to write to.
 		if(file != null){
-			
 			try (FileWriter FileWriter = new FileWriter(file, true)) {
  
 				FileWriter.write(data + "\n");
@@ -55,23 +57,4 @@ public class Logger {
 			}
 		}
 	}
-
-	/* 
-	The base functionality for the FileWriter.
-	Kept in case it is needed in the future.
-
-	protected void log(String data){
-         
-        //Write JSON file
-        try (FileWriter file = new FileWriter("../src/main/java/jar/Log.txt", true)) {
- 
-            file.write(data + "\n");
-            file.flush();
-            file.close();
- 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-	}
-	*/
 }
