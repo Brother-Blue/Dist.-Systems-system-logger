@@ -2,7 +2,6 @@ package jar;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-
 import org.eclipse.paho.client.mqttv3.IMqttClient;
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.MqttCallback;
@@ -66,5 +65,4 @@ public class Subscriber implements MqttCallback{
 
 		logger.writeFile(data, type);
 	}
-
 }
