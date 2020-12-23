@@ -1,46 +1,16 @@
-# Logger
+# System Logger
 
-# Table of contents
-1. [Purpose](#purpose)
-    1. [What](#what)
-    1. [Why](#why)
-    1. [How](#how)
-1. [Running Instructions](#running)
-1. [Requirements (SRS)](#requirements)
-1. [Architecture (SAD)](#architecture)
-1. [Developers](#developers)
+## System Logger High-level description 
 
-## Purpose <a name="purpose"></a>
-### What are you going to make? <a name="what"></a>
+The System Logger contains a subscriber, a Logger class and three files for logging responses from the Appointment Handler. The subscriber subscribes to the topics it is supposed to log, and the logger class redirects the response to the correct file.
 
-### Why will you make it? <a name="why"></a>
+### Communication
+All communication between the System Logger and the rest of the system is done via a broker, using the MQTT-protocol applying a Publish/Subscribe architectural style. 
 
-### How are you going to make it? <a name="how"></a>
+### How to run
 
-## Running Instructions <a name="running"></a>
+1. Move to the first logger folder, where you will see a Pom file.
 
-Move to the first logger folder, where you will see a Pom file.
-Here, you run:
+1. Here, you run: mvn clean install
 
-mvn clean install
-
-which should create a jar file that is executable. 
-Then, you should move to the target folder,
-where you run:
-
-java -jar logger.jar (NOT logger-1.jar)
-
-Now it is subscribed and is ready to recieve data!
-
-## Requirements (SRS) <a name="requirements"></a>
-
-## Architecture (SAD) <a name="architecture"></a>
-
-## Developers <a name="developers"></a>
-
-- [Clementine Jensen](https://github.com/clementinejensen)
-- [Christian O'Neill](https://github.com/Brother-Blue)
-- [Hjalmar Thunberg](https://github.com/Hjalmar-Thunberg)
-- [Hugo Hempel](https://github.com/HugoHempel)
-- [Linus Ivarsson](https://github.com/linusivarssons)
-- [Linus Åberg](https://github.com/LinusAaberg)
+1. Then, you should move to the target folder, where you run: java -jar logger.jar
