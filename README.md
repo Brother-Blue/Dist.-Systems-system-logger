@@ -9,6 +9,14 @@ All communication between the System Logger and the rest of the system is done v
 
 ### How to run
 
+1. Install MQTT-broker
+    1. Download the Mosquitto MQTT-broker from [here](https://mosquitto.org/)
+    1. Locate and open the Mosquitto configuration file (mosquitto.conf)
+    1. Add "#Websockets
+            listener 9001
+            protocol websockets"
+    1. Restart the broker
+    
 1. Move to the first logger folder, where you will see a Pom file.
 
 1. Here, you run: mvn clean install
